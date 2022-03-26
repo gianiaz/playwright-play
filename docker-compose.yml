@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+  playwright:
+    image: mcr.microsoft.com/playwright:v1.20.0-focal
+    ipc: host
+    user: pwuser
+    working_dir: /home/pwuser
+    volumes:
+      - ./src:/home/pwuser
+    security_opt:
+      - seccomp:./seccomp_profile.json
