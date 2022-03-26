@@ -7,6 +7,9 @@ services:
     user: pwuser
     working_dir: /home/pwuser
     volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
       - ./src:/home/pwuser
     security_opt:
       - seccomp:./seccomp_profile.json
+    environment:
+      DISPLAY: ${DISPLAY}
